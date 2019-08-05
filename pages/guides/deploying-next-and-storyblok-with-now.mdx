@@ -18,7 +18,7 @@ export const meta = {
   url: 'https://zeit.co/guides/deploying-next-and-storyblok-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-storyblok-with-now/deploying-next-storyblok-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-storyblok-with-now.mdx',
-  lastEdited: '2019-08-01T20:13:54.000Z'
+  lastEdited: '2019-08-05T19:55:30.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [Storyblok](https://www.storyblok.com/) headless CMS, before deploying **with just a single command** to [ZEIT Now](/docs/v2).
@@ -290,7 +290,7 @@ Now, add the following build script to your `package.json` file:
   your Next.js + Storyblok project.
 </Caption>
 
-Next, you will make your API keys available to your application during [local development](/docs/v2/development/basics/) by creating a `.env.build` file.
+Next, you will make your API keys available to your application during local development by creating a `.env.build` file.
 
 Create a `.env.build` file at the root of your project directory with the following code, adding your API keys where instructed:
 
@@ -310,7 +310,7 @@ Lastly, to make your API key available for [cloud deployment](/docs/v2/deploymen
   Adding the <InlineCode>STORYBLOK_API_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
 </Caption>
 
-With those steps out the way you are now able to run your application. You can [develop your application locally](/docs/v2/development/basics/) using the following command:
+With those steps out the way you are now able to run your application. You can develop your application locally using the following command:
 
 <TerminalInput>next dev</TerminalInput>
 <Caption>

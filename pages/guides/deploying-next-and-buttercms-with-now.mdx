@@ -19,7 +19,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-buttercms-with-now/deploying-next-buttercms-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-buttercms-with-now.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-08-05T19:55:30.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [ButterCMS](https://buttercms.com/) content management system, before deploying **with just a single command** to [ZEIT Now](/docs/v2).
@@ -273,7 +273,7 @@ Now, add the following build script to your `package.json` file:
   your Next.js + ButterCMS project.
 </Caption>
 
-Next, you will make your API key available to your application during [local development](/docs/v2/development/basics/) by creating a `.env.build` file.
+Next, you will make your API key available to your application during local development by creating a `.env.build` file.
 
 Create a `.env.build` file at the root of your project directory with the following code, adding your API key obtained in [step 1](#step-1:-create-your-buttercms-content) where instructed:
 
@@ -293,14 +293,12 @@ Lastly, to make your API key available for [cloud deployment](/docs/v2/deploymen
   Adding the <InlineCode>BUTTER_API_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
 </Caption>
 
-With those steps out the way you are now able to run your application. You can [develop your application locally](/docs/v2/development/basics/) using the following command:
+With those steps out the way you are now able to run your application. You can develop your application locally using the following command:
 
-<TerminalInput>now dev</TerminalInput>
+<TerminalInput>next dev</TerminalInput>
 <Caption>
-  Using the <InlineCode>now dev</InlineCode> command to simulate the Now deployment environment locally.
+  Using the <InlineCode>next dev</InlineCode> command to run the app locally.
 </Caption>
-
-By using `now dev`, you are able to run your application locally, in a reproduction of the Now deployment environment. This ensures there are **no surprises when you deploy your app**.
 
 ## Step 4: Deploying the Application
 
