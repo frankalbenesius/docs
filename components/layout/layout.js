@@ -69,23 +69,10 @@ export default class Layout extends React.Component {
   }
 
   onScroll() {
-    // Debounce scroll events by ignoring them until we're given the thread
-    // to repaint
-    if (ignore) {
-      return
-    }
-    ignore = true
-
-    requestAnimationFrame(async () => {
-      ignore = false
-
-      await this.setState({
-        scrollDirection:
-          this.state.scrollPosition < window.pageYOffset ? 'down' : 'up'
-      })
-
-      // Handle the scroll via setState, etc.
+    requestAnimationFrame(() => {
       this.setState({
+        scrollDirection:
+          this.state.scrollPosition < window.pageYOffset ? 'down' : 'up',
         scrollPosition: window.pageYOffset
       })
     })
@@ -99,6 +86,8 @@ export default class Layout extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll.bind(this))
+    document.removeEventListener('keydown', this.onKeyDown.bind(this), false)
+    document.removeEventListener('keyUp', this.onKeyUp.bind(this), false)
   }
 
   handleToggleNavigation = () => {
@@ -121,6 +110,10 @@ export default class Layout extends React.Component {
     const { children, dynamicSearch, data } = this.props
     const { scrollPosition, scrollDirection } = this.state
 
+    const hideHeader =
+      scrollDirection === 'down' && scrollPosition > 0 ? true : false
+    const detached = scrollPosition > 0
+
     return (
       <Page>
         <UserContext.Consumer>
@@ -129,11 +122,8 @@ export default class Layout extends React.Component {
               user={user}
               render={({ teams }) => (
                 <LayoutHeader
-                  hideHeader={
-                    scrollDirection === 'down' && scrollPosition > 0
-                      ? true
-                      : false
-                  }
+                  hideHeader={hideHeader}
+                  detached={detached}
                   inHero={scrollPosition < 334}
                   isTop={scrollPosition <= 0}
                   hideHeaderSearch={dynamicSearch && scrollPosition < 334}

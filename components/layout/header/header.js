@@ -258,6 +258,7 @@ class Header extends Component {
       zenModeActive,
       isAmp,
       hideHeader,
+      detached,
       hideHeaderSearch,
       dynamicSearch,
       isTop,
@@ -276,6 +277,7 @@ class Header extends Component {
       <div className="header-wrapper">
         <LayoutHeader
           hideHeader={hideHeader}
+          detached={detached}
           hideHeaderSearch={hideHeaderSearch}
           dynamicSearch={dynamicSearch}
           isTop={isTop}
