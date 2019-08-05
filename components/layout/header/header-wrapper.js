@@ -34,6 +34,9 @@ const Header = ({
         background: ${hideHeaderSearch && dynamicSearch
           ? 'transparent'
           : '#fff'};
+        box-shadow: ${hideHeader && !dynamicSearch
+          ? 'var(--shadow-small)'
+          : 'none'};
         transition: all 0.2s ease;
       }
 
